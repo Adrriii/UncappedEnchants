@@ -45,7 +45,7 @@ public class ConfigItem<V> {
     public V get() {
         switch(this.getGenericName()) {
             case "Integer":
-                return (V) (Integer) Config.config.getInt(this.name, this.category, (int) this.defaultValue, 0, (this.name.startsWith(Config.LevelCapPrefix) ? 255 : 999), this.comment);
+                return (V) Integer.valueOf(Config.config.getString(this.name, this.category, this.defaultValue.toString(), this.comment));
             case "Float":
                 return (V) (Float) Float.parseFloat(Config.config.getString(this.name, this.category, this.defaultValue.toString(), this.comment));
             case "Boolean":
