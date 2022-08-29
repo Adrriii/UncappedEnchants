@@ -22,4 +22,4 @@ Additionally, it removes the cap on repair/merging costs with the Anvil.
 
 ## Installation
 
-Upcoming.
+Via CurseForge : https://www.curseforge.com/minecraft/mc-mods/uncappedenchants
