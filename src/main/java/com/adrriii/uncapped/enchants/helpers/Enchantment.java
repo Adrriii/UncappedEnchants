@@ -11,23 +11,22 @@ import com.adrriii.uncapped.enchants.config.Config;
 import com.adrriii.uncapped.enchants.mixins.common.MixinEnchants;
 
 public enum Enchantment {
-    Efficiency      ("Efficiency",      20), // OK
-    Unbreaking      ("Unbreaking",      20), // OK
-    Fortune         ("Fortune",         20, "Also for all loot types (Looting, Luck of the Sea)"), // OK
-    SilkTouch       ("SilkTouch",       1), // OK
+    Efficiency      ("Efficiency",      20),
+    Unbreaking      ("Unbreaking",      20),
+    Fortune         ("Fortune",         20, "Also for all loot types (Looting, Luck of the Sea)"),
+    SilkTouch       ("SilkTouch",       1),
+    Protection      ("Protection",      20, "Also for all protection types (Fire, Blast, Arrow, Falling)"),
+    AquaAffinity    ("AquaAffinity",    1),
+    Respiration     ("Respiration",     20),
 
-    Protection      ("Protection",      20, "Also for all protection types (Fire, Blast, Arrow, Falling)"), // OK
-    AquaAffinity    ("AquaAffinity",    1), // OK
-    Respiration     ("Respiration",     20), // OK
+    Sharpness       ("Sharpness",       20, "Also for all sword damage types (Smite, Arthropods)"),
+    FireAspect      ("FireAspect",      20),
+    Knockback       ("Knockback",       20),
 
-    Sharpness       ("Sharpness",       20, "Also for all sword damage types (Smite, Arthropods)"), // OK
-    FireAspect      ("FireAspect",      20), // OK
-    Knockback       ("Knockback",       20), // OK
-
-    Power           ("Power",           20), // OK
-    Infinity        ("Infinity",        1),  // OK
-    Punch           ("Punch",           20), // OK
-    Fire            ("Fire",            1),  // OK
+    Power           ("Power",           20),
+    Infinity        ("Infinity",        1),
+    Punch           ("Punch",           20),
+    Fire            ("Fire",            1),
 
     Lure            ("Lure",            20);
 

@@ -13,6 +13,7 @@ import net.minecraftforge.common.config.Configuration;
 public class Config {
     public static Configuration config;
 
+    // (maintain with ConfigValues)
     // Main config
 
     public static boolean EnableUncappedEnchants;
@@ -20,22 +21,24 @@ public class Config {
     public static boolean DefaultCapEverywhere;
 
     // Enchant caps
-    // Add config values (also in ConfigValues array)
 
     public static int DefaultLevelCap;
 
     public static String LevelCapPrefix = "LevelCap_";
     public static Map<String, Integer> LevelCaps = new HashMap<>();
 
+    /**
+     * Loads the configuration defaults and values
+     * @param event
+     */
     public static void load(FMLPreInitializationEvent event) {
         config = new Configuration(new File(event.getModConfigurationDirectory(), "UncappedEnchants.cfg"), "1.0", true);
         config.load();
+        ConfigValues.init();
 
         for(ConfigCategory category : ConfigValues.configCategories) {
             config.addCustomCategoryComment(category.name, category.comment);
         }
-
-        ConfigValues.init();
 
         for(@SuppressWarnings("rawtypes") ConfigItem item : ConfigValues.configItems) {
             setConfigItemValue(item);
@@ -48,10 +51,19 @@ public class Config {
         config.save();
     }
 
+    /**
+     * Obtain the configuration value for a given Enchantment's maximum level
+     * @param enchant
+     * @return
+     */
     public static Integer getLevelCap(Enchantment enchant) {
         return LevelCaps.get(LevelCapPrefix+enchant.getName());
     }
 
+    /**
+     * Load the default value for a config item
+     * @param item
+     */
     private static void setConfigItemValue(@SuppressWarnings("rawtypes") ConfigItem item) {
         if(!item.name.equals("UNASSIGNED")) {
 
