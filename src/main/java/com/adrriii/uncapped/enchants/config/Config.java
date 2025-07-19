@@ -7,6 +7,7 @@ import java.util.Map;
 import com.adrriii.uncapped.enchants.UncappedEnchants;
 import com.adrriii.uncapped.enchants.helpers.Enchantment;
 
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
 
@@ -27,12 +28,21 @@ public class Config {
     public static String LevelCapPrefix = "LevelCap_";
     public static Map<String, Integer> LevelCaps = new HashMap<>();
 
+    public static File configFile;
     /**
      * Loads the configuration defaults and values
      * @param event
      */
-    public static void load(FMLPreInitializationEvent event) {
-        config = new Configuration(new File(event.getModConfigurationDirectory(), "UncappedEnchants.cfg"), "1.0", true);
+    public static void preLoad(FMLPreInitializationEvent event) {
+        configFile = new File(event.getModConfigurationDirectory(), "UncappedEnchants.cfg");
+    }
+
+    /**
+     * Loads the configuration defaults and values
+     * @param event
+     */
+    public static void load(FMLPostInitializationEvent event) {
+        config = new Configuration(configFile, "1.0", true);
         config.load();
         ConfigValues.init();
 

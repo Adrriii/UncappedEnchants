@@ -7,6 +7,7 @@ import com.adrriii.uncapped.enchants.config.Config;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = UncappedEnchants.MODID, version = UncappedEnchants.VERSION, name = UncappedEnchants.NAME)
@@ -19,6 +20,11 @@ public class UncappedEnchants {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        Config.preLoad(event);
+    }
+
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
         Config.load(event);
     }
 }
